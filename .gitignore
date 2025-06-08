@@ -52,3 +52,4 @@ output/*.json
 
 # Ignore batch file if you want (uncomment if needed)
 # setup_and_run.bat
+# git remote add origin https://github.com/0NE-C0DEMAN/Yolo_PaddleOCR.git

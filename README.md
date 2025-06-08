@@ -1,92 +1,108 @@
-# Yolo PaddleOCR UI Application
+# Yolo_PaddleOCR
 
-A desktop application for UI element detection and OCR using YOLOv8, PaddleOCR, and Gemini AI, with a modern PyQt6 interface.
+A user-friendly desktop app for OCR and AI chat, combining YOLO object detection, PaddleOCR text recognition, and Gemini AI chat, built with PyQt6. Easy setup, secure API key management, and ready for open-source distribution.
 
-## Environment Setup (Windows)
+---
 
-### 1. Install Python 3.10 or 3.11
+## Features
 
-- Download from [python.org](https://www.python.org/downloads/).
-- During installation, **add Python to PATH**.
-- Verify installation:
-  ```bash
-  python --version
-  ```
+- **YOLOv8 Object Detection**: Detects objects in images.
+- **PaddleOCR**: Extracts text from detected regions.
+- **Gemini AI Chat**: Interact with Gemini AI for advanced chat and analysis.
+- **Modern PyQt6 UI**: Simple, clean, and user-friendly interface.
+- **Secure API Key Management**: Enter and save your Gemini API key securely.
+- **One-click Setup**: Automated environment creation and app launch.
 
-### 2. Install Chocolatey (Windows Package Manager)
+---
 
-- Open **PowerShell as Administrator**.
-- Run:
-  ```powershell
-  Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-  ```
-- Verify:
-  ```powershell
-  choco --version
-  ```
+## Quick Start (Windows)
 
-### 3. Install ccache (Optional, for faster C/C++ builds)
+### 1. Prerequisites
 
-- In **PowerShell as Administrator**:
-  ```powershell
-  choco install ccache -y
-  ```
-- ccache will be installed to `C:\ProgramData\chocolatey\lib\ccache\tools\ccache.exe` and added to PATH automatically.
+#### Install Chocolatey (if not already installed)
+Chocolatey is a Windows package manager that makes installing software easy.
 
-### 4. Unzip the Project Folder
+Open an **Administrator Command Prompt** and run:
 
-- Download and unzip the project folder to your desired location (e.g., `D:\Yolo_PaddleOCR`).
-- Open a terminal in the unzipped folder.
-
-### 5. Create and Activate a Virtual Environment
-
-```bash
-python -m venv .venv
-.venv\Scripts\activate
+```cmd
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 ```
 
-### 6. Install uv (Recommended)
+#### Install Python 3.10+ (if not already installed)
 
-- Install uv for fast, reliable package management:
-  ```bash
-  pip install uv
-  ```
+After installing Chocolatey, run in **Command Prompt** (not bash):
 
-### 7. Install Python Packages
+```cmd
+choco install python --version=3.10.11 -y
+```
 
-- **Recommended:** Use [uv](https://github.com/astral-sh/uv) for fast, reliable installs:
-  ```bash
-  uv pip install -r requirements.lock.txt
-  ```
-- Or, with pip:
-  ```bash
-  pip install -r requirements.lock.txt
-  ```
-- If you want to update dependencies, use `requirements.txt` instead.
+Or download manually from [python.org](https://www.python.org/downloads/).
 
-### 8. Reactivate the Virtual Environment (IMPORTANT)
+#### Add Python to PATH
+- Make sure to check "Add Python to PATH" during installation, or add it manually if needed.
 
-- After installing packages, you may need to activate the environment again in a new terminal:
-  ```bash
-  .venv\Scripts\activate
-  ```
+#### Install Git (if not already installed)
 
-### 9. Run the Application
+```cmd
+choco install git -y
+```
+
+---
+
+### 2. Clone the Repository
 
 ```bash
-python src/main.py
+git clone https://github.com/0NE-C0DEMAN/Yolo_PaddleOCR.git
+cd Yolo_PaddleOCR
 ```
+
+### 3. One-Click Setup & Run
+
+Just double-click `setup_and_run.bat` in the project folder.  
+This will:
+- Create a virtual environment (if not present)
+- Install all dependencies
+- Launch the app
+
+**If you see a message about activating the virtual environment, follow the instructions in the terminal.**
+
+---
+
+## Configuration
+
+- On first run, enter your Gemini API key in the app’s settings panel.
+- The key is saved securely in `config/config.json` (this file is ignored by git for your privacy).
+
+---
+
+## File Structure
+
+- `src/` — Main application code
+- `models/` — YOLOv8 model weights and related files
+- `output/` — Output JSON files (ignored by git)
+- `config/config.json` — Stores your Gemini API key (ignored by git)
+- `setup_and_run.bat` — One-click setup and launch script
+- `requirements.txt` / `requirements.lock.txt` — Dependency lists
 
 ---
 
 ## Notes
 
-- Make sure your Python, pip, and all dependencies are installed in the same environment.
-- If you encounter DLL or dependency errors, ensure you are using the correct Python version and all packages are installed in the active virtual environment.
-- For GPU support, install CUDA and cuDNN, and ensure compatible versions with torch and paddlepaddle.
+- All sensitive files, model weights, outputs, and your API key are protected by `.gitignore`.
+- For advanced users: you can manually activate the virtual environment and run the app with:
+  ```bash
+  .venv\Scripts\activate
+  python src/main.py
+  ```
 
-## Troubleshooting
+---
 
-- If you see errors about missing DLLs or packages, try reinstalling dependencies in a clean virtual environment.
-- For protobuf/onnx errors, ensure `protobuf==3.20.3` is installed (already pinned in lock file).
-- For model loading errors, check that model files exist in `models/yolov8m_for_ocr/weights/`.
+## Contributing
+
+Pull requests and issues are welcome!
+
+---
+
+## License
+
+[MIT License](LICENSE)
