@@ -41,8 +41,6 @@ venv.bak/
 .DS_Store
 Thumbs.db
 
-# Model weights and large data
-models/yolov8m_for_ocr/weights/*.pt
 
 # Output files
 output/*.json
