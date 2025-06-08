@@ -44,10 +44,6 @@ Thumbs.db
 # Model weights and large data
 models/yolov8m_for_ocr/weights/*.pt
 
-# Gemini API key and sensitive config
-config/config.json
-app_config.json
-
 # Output files
 output/*.json
 
